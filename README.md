@@ -33,7 +33,31 @@ RF:
  * rf10.py 
  * rf200.py
 
-Random seed for SVM, RF experiments is all 10.
+GBM: 
+* gbm10.py 
+* gbm200.py
+
+XGBoost: 
+* XGBoost10.py 
+* XGBoost200.py
+
+Random seed for SVM, RF, GBM experiments is all 10.
+
+
+## Deep neural network baselines
+
+LSTM: 
+* lstm10.py 
+* lstm200.py
+
+GRU: 
+* gru10.py 
+* gru200.py
+
+N-BEATS: 
+* n-beats10.py 
+* n-beats200.py
+
 ## AutoML baselines
 Auto-Keras: 
 * autokeras10.py 
