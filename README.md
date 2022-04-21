@@ -85,6 +85,7 @@ Auto-sklearn with automated window size selection and tsfresh features (WT):
 Random seeds for autosklearn experiments are 1 to 25.
 
 ## Citation
+'''
 @misc{AutoML-timeseries,
   author = {Can Wang},
   title = {Towards time-series-specific feature engineering in automated machine learning frameworks},
@@ -92,3 +93,4 @@ Random seeds for autosklearn experiments are 1 to 25.
   publisher = {GitHub},
   journal = {GitHub repository},
 }
+'''
