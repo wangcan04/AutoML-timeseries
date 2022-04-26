@@ -1,6 +1,6 @@
 # AutoML-timeseries
 
-AutoML-timeseries is an automated model for time series forecasting, including automated window size selection and automated feature extraction. Here we show two kinds of baselines, including simple baselines(ARIMA, Moving average, Support vector machine, and Random forest) and AutoML baselines (Auto-Keras, and auto-sklearn), and our AutoML variants for time series forecasting. 
+AutoML-timeseries is an automated model for time series forecasting, including automated window size selection and automated feature extraction. Here we show two kinds of baselines, including simple baselines(ARIMA, Moving average, Support vector machine, Random forest, gradient boosting machine, and eXtreme Gradient Boosting), deep neural network baselines (Long short-term memory, Gated recurrent unit, and N-BEATS), AutoML baselines (Auto-Keras, and auto-sklearn), and our AutoML variants for time series forecasting. 
 
 ## Requirements
 some python packages are needed:
@@ -15,7 +15,7 @@ pmdarima  1.8.0
 
 
 ## Simple baselines
-4 simple stastical models and machine learning models are used.
+Simple stastical models and machine learning models are used.
 
 ARIMA: 
 * arima.py
@@ -87,10 +87,9 @@ Random seeds for autosklearn experiments are 1 to 25.
 ## Citation
 ```
 @misc{AutoML-timeseries,
-  author = {Can Wang},
+  author = {Can Wang, Mitra Baratchi, Thomas Bäck, Holger H. Hoos, Steffen Limmer, Markus Olhofer},
   title = {Towards time-series-specific feature engineering in automated machine learning frameworks},
   year = {2022},
-  publisher = {GitHub},
-  journal = {GitHub repository},
+  journal = {under review},
 }
 ```
