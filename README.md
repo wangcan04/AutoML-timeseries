@@ -38,8 +38,8 @@ GBM:
 * gbm200.py
 
 XGBoost: 
-* XGBoost10.py 
-* XGBoost200.py
+* xgbboost10.py 
+* xgboost200.py
 
 Random seed for SVM, RF, GBM experiments is all 10.
 
@@ -86,7 +86,7 @@ Random seeds for autosklearn experiments are 1 to 25.
 
 ## Citation
 ```
-@misc{AutoML-timeseries,
+@article{AutoML-timeseries,
   author = {Can Wang, Mitra Baratchi, Thomas Bäck, Holger H. Hoos, Steffen Limmer, Markus Olhofer},
   title = {Towards time-series-specific feature engineering in automated machine learning frameworks},
   year = {2022},
