@@ -42,7 +42,7 @@ XGBoost:
 * xgboost200.py
 
 Random seed for SVM, RF, GBM experiments is all 10.
-
+Random seed for XGBoost is 1.
 
 ## Deep neural network baselines
 
