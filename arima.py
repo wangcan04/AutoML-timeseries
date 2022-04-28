@@ -47,7 +47,7 @@ if __name__ == "__main__":
  #data=np.loadtxt('timeseries(real)/music/comp-engine-export-datapoints.txt',delimiter=',')
  #data=np.loadtxt('timeseries(real)/Tropical forest soundscape(animal sound)/comp-engine-export-datapoints.txt',delimiter=',')
  #data=np.loadtxt('timeseries(real)/Zooplankton growth/comp-engine-export-datapoints.txt',delimiter=',')
- train, test = model_selection.train_test_split(data, train_size=int(len(data)*0.67))
+ train, test = model_selection.train_test_split(data, train_size=int(len(data)*0.67),shuffle=False)
 
  modl = pm.auto_arima(train, error_action='ignore', trace=True,
                       stepwise=False)
