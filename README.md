@@ -57,7 +57,7 @@ GRU:
 N-BEATS: 
 * n-beats10.py 
 * n-beats200.py
-
+Random seed is from 1 to 25.
 ## AutoML baselines
 Auto-Keras: 
 * autokeras10.py 
