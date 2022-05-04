@@ -43,8 +43,9 @@ def main():
     #data=np.loadtxt('timeseries(real)/Tropical forest soundscape(animal sound)/comp-engine-export-datapoints.txt',delimiter=',')
     #data=np.loadtxt('timeseries(real)/Zooplankton growth/comp-engine-export-datapoints.txt',delimiter=',')
     time_steps, input_dim, output_dim = 10, 1, 1
+    i=int(sys.argv[1])+1
 
-    # This example is for both Keras and Pytorch. In practice, choose the one you prefer.
+    tf.random.set_seed(i)    # This example is for both Keras and Pytorch. In practice, choose the one you prefer.
     for BackendType in [NBeatsKeras]:
         backend = BackendType(
             backcast_length=time_steps, forecast_length=output_dim,
@@ -78,7 +79,7 @@ def main():
 
         # Train the model.
         print('Training...')
-        backend.fit(X_train, y_train, validation_data=(X_valid, y_valid),epochs=10)
+        backend.fit(X_train, y_train, validation_data=(X_valid, y_valid),epochs=500)
 
         # Save the model for later.
         backend.save('/home/wangcan/n-beats/n_beats_model.h5')
