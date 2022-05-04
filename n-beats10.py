@@ -1,4 +1,5 @@
-import warnings
+mport warnings
+import tensorflow as tf
 
 import numpy as np
 
@@ -44,16 +45,22 @@ def main():
     #data=np.loadtxt('timeseries(real)/Zooplankton growth/comp-engine-export-datapoints.txt',delimiter=',')
     time_steps, input_dim, output_dim = 10, 1, 1
     i=int(sys.argv[1])+1
+    seed = i
+    tf.random.set_seed(i)
 
-    tf.random.set_seed(i)    # This example is for both Keras and Pytorch. In practice, choose the one you prefer.
+
+    # This example is for both Keras and Pytorch. In practice, choose the one you prefer.
     for BackendType in [NBeatsKeras]:
         backend = BackendType(
             backcast_length=time_steps, forecast_length=output_dim,
+            stack_types=(NBeatsKeras.GENERIC_BLOCK, NBeatsKeras.GENERIC_BLOCK),
 
         )
+
         # Definition of the objective function and the optimizer.
         backend.compile(loss='mse', optimizer='adam')
 
+        # Definition of the data. The problem to solve is to find f such as | f(x) - y | -> 0.
         # where f = np.mean.
         window_size=time_steps
         windowsize = 200
@@ -76,24 +83,15 @@ def main():
         X_test = X[int(len(X)*0.67):,-window_size:]
         y_test = y[int(len(X)*0.67):]
         test_size = len(X_test)
-
+        print (y_test.shape)
         # Train the model.
         print('Training...')
         backend.fit(X_train, y_train, validation_data=(X_valid, y_valid),epochs=500)
-
-        # Save the model for later.
-        backend.save('/home/wangcan/n-beats/n_beats_model.h5')
         print ('training done')
         # Predict on the testing set (forecast).
-        predictions_forecast = backend.predict(X_test)
+        predictions = backend.predict(X_test)
 
-        # Predict on the testing set (backcast).
-        predictions_backcast = backend.predict(X_test, return_backcast=True)
-        # Load the model.
-        model_2 = BackendType.load('/home/wangcan/n-beats/n_beats_model.h5')
-        np.testing.assert_almost_equal(predictions_forecast, model_2.predict(X_test))
-        print ('test done')
-        predictions = model_2.predict(X_test)
+
         predictions =  predictions.reshape(-1,1)
         score = sklearn.metrics.mean_squared_error(y_test, predictions)
         MAE = sklearn.metrics.mean_absolute_error(y_test, predictions)
