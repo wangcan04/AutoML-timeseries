@@ -17,6 +17,8 @@ pmdarima  1.8.0
 ## Simple baselines
 Simple stastical models and machine learning models are used.
 
+ARIMA:
+* arima.py
 
 Moving average: 
 * mv1.py 
