@@ -88,6 +88,17 @@ def main():
         print('Training...')
         backend.fit(X_train, y_train, validation_data=(X_valid, y_valid),epochs=500)
         print ('training done')
+        predictions = backend.predict(X_train)
+        predictions =  predictions.reshape(-1,1)
+        score = sklearn.metrics.mean_squared_error(y_train, predictions)
+        MAE = sklearn.metrics.mean_absolute_error(y_train, predictions)
+        RMSEscore = math.sqrt(score)
+        R2 = sklearn.metrics.r2_score(y_train, predictions)
+        print("ERRORS TRAINING SET:")
+        print ('RMSE: ', str(RMSEscore))
+        print ('MAE: ', str(MAE))
+        print('R2:', str(R2))
+
         # Predict on the testing set (forecast).
         predictions = backend.predict(X_test)
 
